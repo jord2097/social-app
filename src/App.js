@@ -8,22 +8,18 @@ import './App.css';
 import View from './view';
 import Add from './Add';
 
-
 function App(){
-    const [todos, changeTodos] = useState([
-      /* {id:1, description: "make static data", completed: false},
-      {id:2, description: "make dynamic data", completed: false} */
-    ])
+    const [posts, changePosts] = useState([])  
 
-    const updateList = (id,description,completed)=>{
-      const listItem = {id, description, completed}
-      localStorage.setItem("list", JSON.stringify([...todos, listItem]))
-      changeTodos((prevState)=> [...prevState, listItem])      
-    }
+    const updateList = (postID, userName, postMsg, likes)=>{
+      const listItem = {postID, userName, postMsg, likes}      
+      localStorage.setItem("list", JSON.stringify([...posts, listItem]))
+      changePosts((prevState)=> [...prevState, listItem])      
+    }   
 
-    useEffect(() => {
-      const listContents = localStorage.getItem("list")
-      changeTodos(JSON.parse(listContents)||[])
+    useEffect(() => {      
+      const listContents = localStorage.getItem("list")      
+      changePosts(JSON.parse(listContents)||[])
     }, [])
 
     
@@ -42,10 +38,10 @@ function App(){
           </Navbar>
           <Container>
             <Routes>
-              <Route index element={<View todos={todos}/>}/>
+              <Route index element={<View posts={posts}/>}/>
               <Route path="/add" element={<Add updateList={
-              (id, description, completed)=> updateList(id, description, completed)}/>}/>
-              <Route path="/view" element={<View todos={todos}/>}/>  
+              (postID, userName, postMsg, likes)=> updateList(postID, userName, postMsg, likes)}/>}/>
+              <Route path="/view" element={<View posts={posts}/>}/>  
 
 
             </Routes>          

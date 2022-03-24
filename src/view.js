@@ -1,19 +1,43 @@
 import React from 'react';
-import Table from 'react-bootstrap/Table';
 import './App.css';
+import Postcard from './postcard';
 
-function View(props){    
+function View (props) {
+    const buildPosts = () => {
+      return props.posts.map((current) => (
+        <Postcard postID={current.postID} userName={current.userName} postMsg={current.postMsg} likes={current.likes}/>
+      ))
+    }
+  return (
+      <>
+      <div>
+        {buildPosts()}
+      </div>   
+      </>
+  
+  )  
+
+  }
+
+  
+  
+
+
+/* function View(props){    
   const buildRows = () =>  {
-    return props.todos.map((current) => (
-      <tr key={current.id}>
+    return props.posts.map((current) => (
+      <tr key={current.postID}>
         <td>
-          {current.id}
+          {current.postID}
         </td>
         <td>
-          {current.description}
+          {current.userName}
         </td>
         <td>
-          {current.completed ? "yes" : "no"}
+          {current.postMsg}
+        </td>
+        <td>
+          {current.likes}
         </td>
       </tr>
     )
@@ -26,9 +50,10 @@ function View(props){
         <Table striped bordered hover>
           <thead>
             <tr>
-              <th>ID</th>
-              <th>Task</th>
-              <th>complete</th>
+              <th>id</th>
+              <th>username</th>
+              <th>message</th>
+              <th>likes</th>
             </tr>
           </thead>
           <tbody>
@@ -38,5 +63,7 @@ function View(props){
       </>
     );
 
-}
+} */
+
+
 export default View;
