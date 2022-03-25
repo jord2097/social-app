@@ -5,7 +5,8 @@ import Postcard from './postcard';
 function View (props) {
     const buildPosts = () => {
       return props.posts.map((current) => (
-        <Postcard postID={current.postID} userName={current.userName} postMsg={current.postMsg} likes={current.likes}/>
+        <Postcard postID={current.postID} userName={current.userName} postMsg={current.postMsg} img={current.img} likes={current.likes} changeLikes={props.changeLikes} />
+        // pass through change likes function
       ))
     }
   return (

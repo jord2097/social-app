@@ -1,20 +1,28 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import 'bootstrap/dist/css/bootstrap.min.css';
 import Card from 'react-bootstrap/Card'
 import Image from 'react-bootstrap/Image'
+import Likes from './Likes'
+
 
 function Postcard(props){
+    
+
     return(
         <Card className="mx-auto text-center mt-2">
-            <Card.Header as="h5">@{props.userName}</Card.Header>
-            {/* <Image fluid className="mx-auto" src={props.img} alt={this.props.alt} /> */}
+            <Card.Header as="h5">@{props.userName}</Card.Header>            
             <Card.Body>
-                <Card.Text>{props.postMsg}</Card.Text>
-                {/* <Likes no={this.props.likes} likeaction={this.props.likeaction} postId={this.props.postID} /> */}
-                {/* put unique id somewhere in the card*/}
+                <Image fluid className="mx-auto" src={props.img}/>
+                <Card.Text>{props.postMsg}</Card.Text>                             
+                <Likes postID={props.postID} likes={props.likes} changeLikes={props.changeLikes}  />
+                {/* pass through change likes function */}
             </Card.Body>
             <Card.Footer className="text-muted">{props.postID}</Card.Footer>
         </Card>
-    )
+    ) 
+
+    
+    
 }
 
 export default Postcard

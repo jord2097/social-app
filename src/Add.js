@@ -9,6 +9,7 @@ function Add(props){
         postID: 0,
         userName: "",
         postMsg: "",
+        img: "",
         likes: 0
     })
     toastr.options = {
@@ -38,12 +39,13 @@ function Add(props){
 
     const submithandler =(e) =>{
         e.preventDefault()
-        props.updateList(state.postID, state.userName, state.postMsg, state.likes)
+        props.updateList(state.postID, state.userName, state.postMsg, state.img, state.likes)
         toastr["success"]("You added a To-Do item!", "Success")
         changeState({
             postID: 0,
             userName: "",
             postMsg: "",
+            img: "",
             likes: 0
         })
     }
@@ -74,6 +76,10 @@ function Add(props){
                 <Form.Group controlId="likes">
                     <Form.Label>Likes</Form.Label>
                     <Form.Control name="likes" type="number" value={state.likes} onChange={(e)=> handleChange(e)}/>
+                </Form.Group>
+                <Form.Group controlId="img">
+                    <Form.Label>Post Image</Form.Label>
+                    <Form.Control name="img" type="text" value={state.img} placeholder="Insert Image URL" onChange={(e)=> handleChange(e)}/>
                 </Form.Group>
 
                 <Button variant="primary" type="submit">Submit</Button>
