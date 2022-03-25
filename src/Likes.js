@@ -18,11 +18,9 @@ const LikeButton = (props) => {
                     <button
                     onClick={() => {
                         setLiked(!liked);
-                        setClicked(true);
-                        console.log(props.likes)
-                        // call function                        
+                        setClicked(true);                                              
                         props.changeLikes(props.postID)
-                        console.log(props.likes)                        
+                                               
                     }}
                     onAnimationEnd={() => setClicked(false)}
                     className={cn("like-button-wrapper", {
@@ -53,7 +51,7 @@ const LikeButton = (props) => {
                     </div>
                     </button>
                 </td>
-                <td>
+                <td className="likecount">
                     {props.likes}
                 </td>
             </tr>

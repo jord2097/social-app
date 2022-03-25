@@ -4,6 +4,10 @@ $grey: #8395a7;
 $white: #fff;
 $primary: #54a0ff;
 
+.likecount {
+  vertical-align: inherit !important;
+}
+
 .like-button-wrapper {
   position: relative;
   display: grid;

@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
 import { Alert } from 'react-bootstrap';
-import Allpost from '../home/Allpost';
+import View from '../../view';
 
 
-function Login() {
+function Login(props) {
 
     const [emaillog, setEmaillog] = useState(" ");
     const [passwordlog, setPasswordlog] = useState(" ");
@@ -51,7 +51,7 @@ function Login() {
                     Fill correct please!
                         </Alert>}
             </form>
-                : <Allpost/>
+                : <View posts={props.posts} changeLikes={props.changeLikes}  />
             }
 
         </div>

@@ -40,7 +40,7 @@ function Add(props){
     const submithandler =(e) =>{
         e.preventDefault()
         props.updateList(state.postID, state.userName, state.postMsg, state.img, state.likes)
-        toastr["success"]("You added a To-Do item!", "Success")
+        toastr["success"]("You successfully posted!", "Success")
         changeState({
             postID: 0,
             userName: "",
@@ -66,7 +66,7 @@ function Add(props){
                     <Form.Control name="postID" type="number" value={state.postID} onChange={(e)=> handleChange(e)}/>
                 </Form.Group> */}
                 <Form.Group controlId="userName">
-                    <Form.Label>Username</Form.Label>
+                    <Form.Label>Display Name</Form.Label>
                     <Form.Control name="userName" type="text" value={state.userName} onChange={(e)=> handleChange(e)}/>
                 </Form.Group>
                 <Form.Group controlId="postMsg">
